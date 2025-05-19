@@ -1,37 +1,149 @@
-
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>KuroVerse</title>
-    <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KuroVerse</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #0d0c1d;
+      color: white;
+    }
+
+    .topo {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: linear-gradient(to right, #4b0082, #6a0dad);
+      background-image: url('https://www.transparenttextures.com/patterns/cubes.png');
+      background-blend-mode: overlay;
+      color: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.5);
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .menu {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .menu li a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .menu li a:hover {
+      text-decoration: underline;
+    }
+
+    .secao {
+      padding: 100px 20px 60px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    #home {
+      background: linear-gradient(to bottom, #1e1b3a, #0d0c1d);
+      text-align: center;
+    }
+
+    h2 {
+      color: #c3b1ff;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #6a0dad;
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #4b0082;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background-color: #1a182f;
+      color: #aaa;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .menu {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>KuroVerse</h1>
-        <p>Um universo onde realidades colidem.</p>
-    </header>
+  <header class="topo">
+    <nav>
+      <h1 class="logo">KuroVerse</h1>
+      <ul class="menu">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#episodios">Episódios</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#apoie">Apoie</a></li>
+        <li><a href="#categorias">Categorias</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
-        <section id="sobre">
-            <h2>Sobre o Universo</h2>
-            <p>Nexus Arcana é um mundo onde múltiplas realidades se fundem após um cataclismo cósmico: A Grande Convergência. Fragmentos de mundos medievais, futuristas e mágicos coexistem em um plano instável e fascinante.</p>
-        </section>
+  <section id="home" class="secao">
+    <div class="conteudo">
+      <h2>Bem-vindo ao KuroVerse</h2>
+      <p>O multiverso onde magia, tecnologia e realidades colidem.</p>
+    </div>
+  </section>
 
-        <section id="episodios">
-            <h2>Episódios</h2>
-            <p>Em breve: episódios do anime Nexus Arcana.</p>
-        </section>
+  <section id="episodios" class="secao">
+    <h2>Episódios</h2>
+    <p>Em breve: os primeiros episódios do universo Nexus Arcana.</p>
+  </section>
 
-        <section id="apoio">
-            <h2>Apoie o Projeto</h2>
-            <button>Em breve: Assinaturas Mensais</button>
-        </section>
-    </main>
+  <section id="sobre" class="secao">
+    <h2>Sobre o KuroVerse</h2>
+    <p>Após A Grande Convergência, o mundo mudou para sempre...</p>
+  </section>
 
-    <footer>
-        <p>&copy; 2025 KuroVerse - Todos os direitos reservados.</p>
-    </footer>
+  <section id="apoie" class="secao">
+    <h2>Apoie o Projeto</h2>
+    <button>Apoiar</button>
+  </section>
+
+  <section id="categorias" class="secao">
+    <h2>Categorias</h2>
+    <p>Magia, tecnologia, fantasia, cyberpunk e muito mais.</p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 KuroVerse. Todos os direitos reservados.</p>
+  </footer>
 </body>
 </html>
