@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Criar Personagem - CreatorForge</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-black text-white min-h-screen flex items-center justify-center px-4">
+  <main class="max-w-xl w-full bg-zinc-900 rounded-xl p-8 shadow-lg">
+    <h1 class="text-4xl font-bold text-center mb-6 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-600">
+      Criar Personagem
+    </h1>
+    <form id="characterForm" class="space-y-6">
+      <div>
+        <label for="name" class="block mb-1 font-medium">Nome:</label>
+        <input type="text" id="name" name="name" required
+          class="w-full px-4 py-2 rounded-lg bg-zinc-800 text-white focus:outline-none focus:ring-2 focus:ring-purple-600" />
+      </div>
+
+      <div>
+        <label for="description" class="block mb-1 font-medium">Descrição:</label>
+        <textarea id="description" name="description" rows="3" required
+          class="w-full px-4 py-2 rounded-lg bg-zinc-800 text-white resize-none focus:outline-none focus:ring-2 focus:ring-purple-600"></textarea>
+      </div>
+
+      <div>
+        <label class="block mb-1 font-medium">Escolha a aparência:</label>
+        <div class="flex gap-4">
+          <label class="cursor-pointer">
+            <input type="radio" name="avatar" value="avatar1" required class="hidden" />
+            <img src="https://i.pravatar.cc/80?img=1" alt="Avatar 1"
+              class="w-20 h-20 rounded-full border-4 border-transparent hover:border-purple-600 transition" />
+          </label>
+          <label class="cursor-pointer">
+            <input type="radio" name="avatar" value="avatar2" required class="hidden" />
+            <img src="https://i.pravatar.cc/80?img=2" alt="Avatar 2"
+              class="w-20 h-20 rounded-full border-4 border-transparent hover:border-purple-600 transition" />
+          </label>
+          <label class="cursor-pointer">
+            <input type="radio" name="avatar" value="avatar3" required class="hidden" />
+            <img src="https://i.pravatar.cc/80?img=3" alt="Avatar 3"
+              class="w-20 h-20 rounded-full border-4 border-transparent hover:border-purple-600 transition" />
+          </label>
+        </div>
+      </div>
+
+      <button type="submit" class="w-full py-3 bg-purple-600 rounded-2xl font-semibold hover:bg-purple-700 transition">
+        Criar Personagem
+      </button>
+    </form>
+
+    <div id="result" class="mt-8 p-4 bg-zinc-800 rounded-lg hidden">
+      <h2 class="text-2xl font-bold mb-4">Personagem Criado:</h2>
+      <div class="flex items-center gap-4">
+        <img id="resultAvatar" src="" alt="Avatar" class="w-20 h-20 rounded-full" />
+        <div>
+          <p><strong>Nome:</strong> <span id="resultName"></span></p>
+          <p><strong>Descrição:</strong> <span id="resultDescription"></span></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const form = document.getElementById('characterForm')
+    const result = document.getElementById('result')
+    const resultName = document.getElementById('resultName')
+    const resultDescription = document.getElementById('resultDescription')
+    const resultAvatar = document.getElementById('resultAvatar')
+
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+
+      const formData = new FormData(form)
+      const name = formData.get('name')
+      const description = formData.get('description')
+      const avatar = formData.get('avatar')
+
+      // Mostrar resultado
+      resultName.textContent = name
+      resultDescription.textContent = description
+      if (avatar === 'avatar1') {
+        resultAvatar.src = 'https://i.pravatar.cc/80?img=1'
+      } else if (avatar === 'avatar2') {
+        resultAvatar.src = 'https://i.pravatar.cc/80?img=2'
+      } else if (avatar === 'avatar3') {
+        resultAvatar.src = 'https://i.pravatar.cc/80?img=3'
+      }
+      result.classList.remove('hidden')
+
+      // Limpar formulário
+      form.reset()
+    })
+  </script>
+</body>
+</html>
